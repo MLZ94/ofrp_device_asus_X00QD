@@ -14,5 +14,22 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_X00QD.mk
+# Release name
+PRODUCT_RELEASE_NAME := X00QD
+
+$(call inherit-product, build/target/product/embedded.mk)
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/asus/X00QD/device.mk)
+
+PRODUCT_DEVICE := X00QD
+PRODUCT_NAME := omni_X00QD
+PRODUCT_BRAND := asus
+PRODUCT_MODEL := ASUS_X00QD
+PRODUCT_MANUFACTURER := asus
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=OPEN_Phone

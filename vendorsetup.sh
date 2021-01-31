@@ -1,2 +1,10 @@
-add_lunch_combo omni_X00Q-userdebug
-add_lunch_combo omni_X00Q-eng
+export TW_DEVICE_VERSION=R11_1
+export OF_TARGET_DEVICES="X00QD,X00Q"
+export OF_VERSION=1.1
+export OF_USE_LOCKSCREEN_BUTTON=1
+export OF_MAINTAINER="MLZ"
+export FOX_R11=1
+export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
+export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
+add_lunch_combo omni_X00QD-userdebug
+add_lunch_combo omni_X00QD-eng
