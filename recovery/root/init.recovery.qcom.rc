@@ -50,7 +50,20 @@ service servicemanager /sbin/servicemanager
     group root readproc
     disabled
     seclabel u:r:recovery:s0
-    
+
+service keystore_auth /sbin/keystore_auth
+    oneshot
+    user system
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keystore /sbin/keystore /tmp/misc/keystore
+    user root
+    group root drmrpc readproc
+    disabled
+    seclabel u:r:recovery:s0
+
 on property:crypto.ready=0
     stop qseecomd
     stop keymaster-3-0

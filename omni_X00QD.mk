@@ -33,3 +33,11 @@ PRODUCT_MANUFACTURER := asus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=OPEN_Phone
+    
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.treble.enabled=true \
+    ro.hardware.keystore=sdm660 \
+    ro.hardware.gatekeeper=sdm660 \
+    ro.vendor.build.security_patch=2099-12-31 \
+    ro.bootimage.build.date.utc=1514797200 \
+    ro.build.date.utc=1514797200
