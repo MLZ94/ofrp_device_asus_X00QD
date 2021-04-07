@@ -1,4 +1,4 @@
-TWRP device tree for ASUS Zenfone 5 (ZE620KL)
+OrangeFox device tree for ASUS Zenfone 5 (ZE620KL)
 ========================================================
 
 The ZenFone 5 (codenamed _"ZE620KL"_) is a mid-range smartphone from ASUS.
