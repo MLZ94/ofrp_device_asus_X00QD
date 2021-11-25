@@ -1,0 +1,14 @@
+[
+  {
+    "repository": "android_device_qcom_twrp-common",
+    "target_path": "device/qcom/twrp-common",
+    "remote": "TeamWin",
+    "revision": "android-9.0"
+  },
+  {
+    "repository": "android_vendor_qcom_opensource_interfaces",
+    "target_path": "vendor/qcom/opensource/interfaces",
+    "remote": "omnirom",
+    "revision": "android-9.0"
+  }
+]
