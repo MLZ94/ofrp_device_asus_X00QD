@@ -23,10 +23,6 @@ BOARD_RECOVERY_PATCH_SECURITY_PROPS := \
   sed -i 's/ro.build.version.security_patch=.*/ro.build.version.security_patch=$(NEW_PLATFORM_SECURITY_PATCH)/g' $(TARGET_RECOVERY_ROOT_OUT)/prop.default ;\
   sed -i 's/ro.build.version.release=.*/ro.build.version.release=$(NEW_PLATFORM_VERSION)/g' $(TARGET_RECOVERY_ROOT_OUT)/prop.default
 
-BOARD_RECOVERY_UPDATE_MODULES := \
-  cp $(LOCAL_PATH)/prebuilt/$(NEW_PLATFORM_SECURITY_PATCH)/texfat_user.ko $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib/modules/ ;\
-  cp $(LOCAL_PATH)/prebuilt/$(NEW_PLATFORM_SECURITY_PATCH)/tntfs_user.ko $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib/modules
-
 #TEXFAT_MODULE := $(TARGET_RECOVERY_ROOT_OUT)/sbin/texfat.ko
 #$(TEXFAT_MODULE): $(PRODUCT_OUT)/kernel
 #	@cp $(KERNEL_MODULES_OUT)/texfat.ko $(TEXFAT_MODULE)
