@@ -25,6 +25,7 @@ TARGET_2ND_CPU_VARIANT := cortex-a73
 TARGET_USES_64_BIT_BINDER := true
 
 # Encryption
+BOARD_USES_QCOM_FBE_DECRYPTION := true
 TW_INCLUDE_CRYPTO := true
 TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 TW_INCLUDE_CRYPTO_FBE := true

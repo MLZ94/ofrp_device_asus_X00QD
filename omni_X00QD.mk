@@ -41,3 +41,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31 \
     ro.bootimage.build.date.utc=1514797200 \
     ro.build.date.utc=1514797200
+
+# Crypto
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe
+
