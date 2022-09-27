@@ -124,6 +124,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
 
+# Ramdisk
+LZMA_RAMDISK_TARGETS := recovery
+
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
