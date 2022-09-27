@@ -44,4 +44,5 @@ on fs
     chmod 0775 /asdf
 
 on boot
+    setprop sys.usb.configfs 1
     setprop sys.usb.config adb
