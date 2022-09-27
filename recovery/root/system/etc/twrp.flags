@@ -25,7 +25,12 @@
 /efsg           emmc   /dev/block/bootdevice/by-name/fsg               flags=backup=1;subpartitionof=/efs1
 
 # ASUS Firmware
-/asusfw         ext4   /dev/block/bootdevice/by-name/asusfw            flags=display="ASUS Firmware";wipeingui
+/asdf           emmc   /dev/block/bootdevice/by-name/asdf              flags=display="ASDF";backup=1;flashimg=1
+/aod            emmc   /dev/block/bootdevice/by-name/APD               flags=display="APD";backup=1;flashimg=1
+/factory        emmc   /dev/block/bootdevice/by-name/factory           flags=display="Factory";backup=1;flashimg=1
+/asusfw         emmc   /dev/block/bootdevice/by-name/asusfw            flags=display="ASUS firmware";backup=1;flashimg=1
+/dsp            emmc   /dev/block/bootdevice/by-name/dsp               flags=display="DSP";backup=1;flashimg=1
+/xrom           emmc   /dev/block/bootdevice/by-name/xrom              flags=display="ASUS XROM";backup=1;flashimg=1
 
 # Removable storage
 /usb_otg        auto   /dev/block/sda1             /dev/block/sda      flags=display="USB-OTG";wipeingui;storage;removable
