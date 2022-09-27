@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-# Inherit from ASUS_X00DD device
+# Inherit from ASUS_X00QD device
 $(call inherit-product, device/asus/X00QD/device.mk)
 
 # Inherit some common Omni stuff.
