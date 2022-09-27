@@ -46,3 +46,8 @@ on fs
 on boot
     setprop sys.usb.configfs 1
     setprop sys.usb.config adb
+   
+    # Double tap to wake
+    chown system system /sys/bus/i2c/devices/4-0038/dclick_mode
+    chmod 644 /sys/bus/i2c/devices/4-0038/dclick_mode
+    write /sys/bus/i2c/devices/4-0038/dclick_mode 1
