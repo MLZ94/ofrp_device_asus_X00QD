@@ -23,9 +23,15 @@ $(call inherit-product, device/asus/X00QD/device.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := X00QD
 PRODUCT_NAME := twrp_X00QD
+PRODUCT_DEVICE := X00QD
 PRODUCT_BRAND := asus
-PRODUCT_MODEL := ASUS_X00QD
+PRODUCT_MODEL := Zenfone 5
 PRODUCT_MANUFACTURER := asus
-PRODUCT_RELEASE_NAME := ASUS_Zenfone_5
+
+TARGET_VENDOR_PRODUCT_NAME := X00QD
+TARGET_VENDOR_DEVICE_NAME := ASUS_X00QD
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_DEVICE=ASUS_X00QD \
+    BUILD_PRODUCT=X00QD \
+    PRODUCT_NAME=WW_X00QD
