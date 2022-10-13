@@ -16,7 +16,8 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/asus/X00QD
+# Default device path
+DEVICE_PATH := device/$(PRODUCT_BRAND)/$(TARGET_DEVICE)
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -116,6 +117,16 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+BOARD_ROOT_EXTRA_FOLDERS := ADF \
+                            APD \
+                            asdf \
+                            bt_firmware \
+                            dsp \
+                            factory \
+                            firmware \
+                            persist \
+                            xrom
+
 # Workaround for error copying vendor files to recovery ramdisk
 TARGET_COPY_OUT_VENDOR := vendor
 
@@ -128,6 +139,9 @@ TARGET_USES_MKE2FS := true
 
 # Ramdisk
 LZMA_RAMDISK_TARGETS := recovery
+
+# SELinux
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
