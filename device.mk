@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/asus/ASUS_X00QD
+LOCAL_PATH := device/asus/X00QD
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
@@ -35,3 +35,12 @@ PLATFORM_VERSION := 16.1.0
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+
+# Overrides
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_DEVICE=ASUS_X00QD \
+    PRODUCT_NAME=WW_$(PRODUCT_RELEASE_NAME) \
+    TARGET_DEVICE=X00QD
+
+# Custom ROM asserts
+TARGET_OTA_ASSERT_DEVICE := X00Q, X00QD, ASUS_X00QD

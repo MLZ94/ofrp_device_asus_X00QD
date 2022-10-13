@@ -16,7 +16,8 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/asus/X00QD
+# Default device path
+DEVICE_PATH := device/$(PRODUCT_BRAND)/$(TARGET_DEVICE)
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -42,8 +43,6 @@ TARGET_IS_64_BIT := true
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := ASUS_X00QD
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -84,8 +83,8 @@ BOARD_KERNEL_CMDLINE := \
 	loop.max_part=7 \
 	buildvariant=userdebug
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := kernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/$(BOARD_KERNEL_IMAGE_NAME)
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
@@ -116,6 +115,16 @@ BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+BOARD_ROOT_EXTRA_FOLDERS := ADF \
+                            APD \
+                            asdf \
+                            bt_firmware \
+                            dsp \
+                            factory \
+                            firmware \
+                            persist \
+                            xrom
+
 # Workaround for error copying vendor files to recovery ramdisk
 TARGET_COPY_OUT_VENDOR := vendor
 
@@ -129,16 +138,18 @@ TARGET_USES_MKE2FS := true
 # Ramdisk
 LZMA_RAMDISK_TARGETS := recovery
 
+# SELinux
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_INCLUDE_NTFS_3G := true
-TW_Y_OFFSET := 100
-TW_H_OFFSET := -100
 #TW_EXTRA_LANGUAGES := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel0-backlight/brightness
-TW_MAX_BRIGHTNESS := 4095
+TW_MAX_BRIGHTNESS := 255
 TW_EXCLUDE_NANO := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
