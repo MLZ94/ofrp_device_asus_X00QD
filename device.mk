@@ -22,9 +22,6 @@ LOCAL_PATH := device/asus/X00QD
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
-# API
-PRODUCT_SHIPPING_API_LEVEL := 27
-
 # Qcom common decryption
 PRODUCT_PACKAGES += \
     qcom_decrypt\
@@ -44,11 +41,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_DEVICE=ASUS_X00QD \
     PRODUCT_NAME=WW_$(PRODUCT_RELEASE_NAME) \
     TARGET_DEVICE=X00QD
-
-# Blacklist
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
-    ro.bootimage.build.date.utc \
-    ro.build.date.utc
 
 # Custom ROM asserts
 TARGET_OTA_ASSERT_DEVICE := X00Q, X00QD
