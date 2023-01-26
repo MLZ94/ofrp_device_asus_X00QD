@@ -50,7 +50,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export OF_NO_MIUI_OTA_VENDOR_BACKUP="1"
 	export OF_NO_TREBLE_COMPATIBILITY_CHECK="1"
 	export OF_USE_SYSTEM_FINGERPRINT="1"
-
+        export TARGET_DEVICE_ALT="x00qd, ASUS_X00QD, x00q, X00Q"
 	export OF_FORCE_DISABLE_DM_VERITY_MIUI="1"
 	export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI="1"
 	export FOX_DELETE_AROMAFM=1
@@ -61,6 +61,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
 	# -- add settings for R11 --
 	export FOX_R11=1
+        export FOX_VERSION="R11.1_4"
+        export FOX_BUILD_TYPE="Stable"
 	export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
 	export OF_USE_TWRP_SAR_DETECT=1
 	#export FOX_ADVANCED_SECURITY=1
@@ -85,32 +87,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_SED_BINARY=1
 	export FOX_USE_XZ_UTILS=1
 	export OF_USE_GREEN_LED=1
-
-	# quick backup defaults
-	export OF_QUICK_BACKUP_LIST="/boot;/data;/system_image;/vendor_image;"
-	
-	# Magisk
-	function download_magisk(){
-		# Usage: download_magisk <destination_path>
-		local DEST=$1
-		if [ -n "${DEST}" ]; then
-			if [ ! -e ${DEST} ]; then
-				echo "Downloading the Latest Release of Magisk..."
-				local LATEST_MAGISK_URL=$(curl -sL https://api.github.com/repos/topjohnwu/Magisk/releases/latest | grep browser_download_url | grep Magisk- | cut -d : -f 2,3 | tr -d '"')
-				mkdir -p $(dirname ${DEST})
-				wget -q ${LATEST_MAGISK_URL} -O ${DEST} || wget ${LATEST_MAGISK_URL} -O ${DEST}
-				local RCODE=$?
-				if [ "$RCODE" = "0" ]; then
-					echo "Successfully Downloaded Magisk to ${DEST}!"
-					echo "Done!"
-				else
-					echo "Failed to Download Magisk to ${DEST}!"
-				fi
-			fi
-		fi
-	}
-	export FOX_USE_SPECIFIC_MAGISK_ZIP=~/Magisk/Magisk.zip
-	download_magisk $FOX_USE_SPECIFIC_MAGISK_ZIP
 
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
